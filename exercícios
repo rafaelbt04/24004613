@@ -1,1 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
 
+int main() {
+    char nomeProduto[50];
+    int quantidade;
+    float precoUnitario, valorTotal, valorTotalDia = 0;
+    char continuar;
+
+    do {
+        printf("Digite o nome do produto: ");
+        scanf("%s", nomeProduto);
+
+        printf("Digite a quantidade vendida: ");
+        scanf("%d", &quantidade);
+
+        printf("Digite o preço unitário do produto: R$ ");
+        scanf("%f", &precoUnitario);
+        valorTotal = quantidade * precoUnitario;
+        printf("Produto: %s \n Quantidade: %d \n Preço Unitário: R$ %.2f \n Valor Total: R$ %.2f\n", nomeProduto, quantidade, precoUnitario, valorTotal);
+        valorTotalDia += valorTotal;
+         printf("Deseja registrar outra venda? (s/n): ");
+        scanf(" %c", &continuar);
+
+    } while (continuar == 's' || continuar == 'S');
+
+    printf("\nValor total arrecadado no dia foi de R$ %.2f\n", valorTotalDia);
+
+    return 0;
+}
